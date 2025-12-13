@@ -1,0 +1,160 @@
+# ==============================================================================
+# IDE & Editors
+# ==============================================================================
+.idea/
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# ==============================================================================
+# OS Files
+# ==============================================================================
+.DS_Store
+Thumbs.db
+
+# ==============================================================================
+# Environment & Secrets
+# ==============================================================================
+.env
+.env.*
+!.env.example
+!.env.template
+.envrc
+
+# ==============================================================================
+# Python
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Type checkers & linters
+.mypy_cache/
+.ruff_cache/
+.pytype/
+pyrightconfig.json
+
+# ==============================================================================
+# Node.js & TypeScript
+# ==============================================================================
+node_modules/
+*.tsbuildinfo
+.npm
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# ==============================================================================
+# Vite & Frontend Build
+# ==============================================================================
+.vite/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# ==============================================================================
+# Testing & Coverage
+# ==============================================================================
+.coverage
+.coverage.*
+coverage/
+coverage.xml
+htmlcov/
+.pytest_cache/
+*.lcov
+.nyc_output/
+
+# ==============================================================================
+# Docker
+# ==============================================================================
+docker-compose.override.yml
+docker-compose.*.local.yml
+
+# ==============================================================================
+# Databases
+# ==============================================================================
+# Redis
+*.rdb
+*.aof
+dump.rdb
+
+# Postgres (local data volumes)
+pgdata/
+postgres-data/
+
+# SQLite
+apps/api/varinaut.db
+
+# Chroma (vector database)
+chroma_data/
+.chroma/
+
+# ==============================================================================
+# Caddy
+# ==============================================================================
+caddy_data/
+caddy_config/
+
+# ==============================================================================
+# LLM & AI
+# ==============================================================================
+# Model files (large binaries)
+*.gguf
+*.ggml
+*.bin
+*.safetensors
+models/*.bin
+models/*.gguf
+
+# Hugging Face cache
+.cache/huggingface/
+
+# LangChain/LangGraph artifacts
+.langchain/
+.langgraph/
+
+# Eval outputs (optional - uncomment if you want to ignore)
+# eval_results/
+# evals/outputs/
+
+# ==============================================================================
+# Logs
+# ==============================================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==============================================================================
+# Miscellaneous
+# ==============================================================================
+*.pid
+*.seed
+*.pid.lock
+*.tgz
+.cache/
+tmp/
+temp/
