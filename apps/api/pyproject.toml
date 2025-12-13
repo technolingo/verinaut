@@ -1,0 +1,23 @@
+[project]
+name = "varinaut-api"
+version = "0.1.0"
+description = "FastAPI backend for Varinaut"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.124.0, <0.125.0",
+    "uvicorn[standard]>=0.38.0",
+    "sqlmodel>=0.0.27",
+    "alembic>=1.17.2",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.12.0",
+    "aiosqlite>=0.21.0",
+    "greenlet>=3.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-asyncio>=1.3.0",
+    "httpx>=0.28.1",
+]

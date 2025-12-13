@@ -1,0 +1,156 @@
+[MASTER]
+
+ignore=.git,__pycache__,.pytest_cache,.venv,.vscode,.idea,migrations
+
+jobs=4
+
+
+[MESSAGES CONTROL]
+
+disable=no-member,
+        missing-module-docstring,
+        missing-function-docstring,
+        missing-class-docstring,
+        assignment-from-no-return,
+        assignment-from-none,
+        no-self-use,
+        no-value-for-parameter,
+        redefined-outer-name,
+        unused-argument,
+        bad-continuation,
+        import-error,
+        bare-except,
+        inconsistent-return-statements,
+        multiple-statements,
+        method-hidden,
+        arguments-differ,
+        too-many-locals,
+        too-many-branches,
+        too-many-statements,
+        too-many-arguments,
+        too-many-nested-blocks,
+        logging-format-interpolation,
+        wrong-import-order
+
+
+[BASIC]
+
+good-names=i,j,k,e,_
+
+bad-names=foo,bar,baz,cur
+
+function-rgx=[a-z0-9_]{3,50}$
+
+variable-rgx=[a-z0-9_]{1,50}$
+
+const-rgx=[a-zA-Z0-9_]{2,50}$
+
+attr-rgx=[a-z0-9_]{2,50}$
+
+argument-rgx=[a-z0-9_]{2,30}$
+
+class-attribute-rgx=[a-zA-Z0-9_]{2,50}$
+
+inlinevar-rgx=[a-z_]*$
+
+class-rgx=[a-zA-Z0-9_]*$
+
+module-rgx=[a-zA-Z0-9_]*$
+
+method-rgx=[a-z0-9_]{2,50}$
+
+
+[ELIF]
+
+max-nested-blocks=5
+
+
+[FORMAT]
+
+max-line-length=99
+
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$
+
+single-line-if-stmt=yes
+
+max-module-lines=1000
+
+# 4 space indentation
+indent-string='    '
+
+indent-after-paren=4
+
+expected-line-ending-format=LF
+
+
+[MISCELLANEOUS]
+
+notes=FIXME
+
+
+[VARIABLES]
+
+init-import=no
+
+
+[LOGGING]
+
+logging-modules=logging
+
+
+[SIMILARITIES]
+
+min-similarity-lines=6
+
+ignore-comments=yes
+
+ignore-docstrings=yes
+
+ignore-imports=yes
+
+
+[IMPORTS]
+
+deprecated-modules=regsub,TERMIOS,Bastion,rexec
+
+
+[DESIGN]
+
+max-args=9
+
+ignored-argument-names=_.*
+
+max-locals=17
+
+max-returns=7
+
+max-branches=12
+
+max-statements=50
+
+max-parents=7
+
+max-attributes=15
+
+min-public-methods=0
+
+max-public-methods=20
+
+# Maximum number of boolean expressions in a if statement
+max-bool-expr=5
+
+
+[CLASSES]
+
+defining-attr-methods=__init__,__new__,setUp
+
+valid-classmethod-first-arg=cls
+
+valid-metaclass-classmethod-first-arg=mcs
+
+exclude-protected=_asdict,_fields,_replace,_source,_make
+
+
+[EXCEPTIONS]
+
+overgeneral-exceptions=

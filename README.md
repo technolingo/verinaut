@@ -290,7 +290,7 @@ varinaut/
 │   │   ├── src/
 │   │   │   ├── main.py                # Application entrypoint
 │   │   │   ├── config.py              # Environment configuration
-│   │   │   ├── database.py            # SQLite with SQLAlchemy
+│   │   │   ├── sqldb.py            # SQLite with SQLAlchemy
 │   │   │   ├── routers/
 │   │   │   │   ├── predictions.py     # CRUD for predictions
 │   │   │   │   ├── approve.py         # Human approval endpoint
@@ -341,7 +341,7 @@ varinaut/
 │   │   │   └── metrics/
 │   │   └── pyproject.toml
 │   │
-│   └── vectordb/                            # Chroma Utilities
+│   └── vectordb/                      # Chroma Utilities
 │       ├── src/
 │       │   ├── client.py
 │       │   └── embeddings.py
