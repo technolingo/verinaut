@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     app_name: str = "Varinaut API"
     debug: bool = True
-    database_url: str = "sqlite+aiosqlite:///./varinaut.db"
+    database_url: str = "sqlite+aiosqlite:///./varinautsqlite.db"
 
     ai_model_name: str = ""
     ai_model_api_key: str = ""

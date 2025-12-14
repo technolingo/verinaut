@@ -104,7 +104,7 @@ pgdata/
 postgres-data/
 
 # SQLite
-apps/api/varinaut.db
+apps/api/varinautsqlite.db
 
 # Chroma (vector database)
 chroma_data/

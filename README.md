@@ -290,7 +290,7 @@ varinaut/
 │   │   ├── src/
 │   │   │   ├── main.py                # Application entrypoint
 │   │   │   ├── config.py              # Environment configuration
-│   │   │   ├── sqldb.py            # SQLite with SQLAlchemy
+│   │   │   ├── sqldb.py               # SQLite with SQLAlchemy
 │   │   │   ├── routers/
 │   │   │   │   ├── predictions.py     # CRUD for predictions
 │   │   │   │   ├── approve.py         # Human approval endpoint
@@ -302,7 +302,7 @@ varinaut/
 │   │   │       └── eval_service.py
 │   │   ├── tests/
 │   │   ├── pyproject.toml
-│   │   └── varinaut.db                # SQLite file (gitignored)
+│   │   └── varinautsqlite.db          # SQLite file (gitignored)
 │   │
 │   └── web/                           # React Frontend
 │       ├── src/
@@ -469,14 +469,13 @@ DeepEval assesses the quality of agent reasoning:
 
 ## Scope & Limitations
 
-This is a **demo project** for learning and showcasing agentic AI capabilities. The following have been deliberately omitted (maybe later I'll add them and deploy the site):
+This is a **demo project** for learning and showcasing agentic AI capabilities. The following aspects have been deliberately omitted (maybe I'll add them later and deploy this to the cloud):
 
 - ❌ Authentication & Authorization
 - ❌ Rate-Limiting
 - ❌ Multi-user support
 - ❌ Production database
 - ❌ Containerization
-- ❌ Comprehensive test suite (except LLM evals)
 - ❌ CI/CD Pipelines
 
 ---
