@@ -4,7 +4,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .config import get_settings
-from .sqldb import init_db
 from .routers import predictions
 
 settings = get_settings()
@@ -12,8 +11,7 @@ settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: Initialize database
-    await init_db()
+    # Database schema is managed by Alembic migrations
     yield
     # Shutdown: cleanup if needed
 
