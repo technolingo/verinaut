@@ -16,24 +16,16 @@ class TestPredictionsAPI:
         assert len(data) == 0
 
     @pytest.mark.asyncio
-    async def test_get_predictions_with_data(
-        self, client: AsyncClient, sample_predictions
+    async def test_get_predictions_with_json_fixtures(
+        self, client: AsyncClient, load_test_data
     ):
-        """Test GET /predictions with sample data."""
+        """Test GET /predictions with JSON fixture data."""
         response = await client.get("/predictions/")
 
         assert response.status_code == 200
         data = response.json()
         assert isinstance(data, list)
-        assert len(data) == 2
-
-        # Check that we have the expected predictions
-        questions = {pred["question"] for pred in data}
-        expected_questions = {
-            "Will AI surpass human intelligence by 2030?",
-            "Will renewable energy exceed 50% of US electricity by 2025?",
-        }
-        assert questions == expected_questions
+        assert len(data) == 3
 
         # Verify data structure
         for pred in data:
@@ -50,9 +42,20 @@ class TestPredictionsAPI:
                 "resolved",
             ]
 
+        # Check specific predictions from fixtures
+        ai_predictions = [
+            p for p in data if "AI surpass human intelligence" in p["question"]
+        ]
+        assert len(ai_predictions) == 1
+        assert ai_predictions[0]["status"] == "approved"
+
+        resolved_predictions = [p for p in data if p["outcome"] is not None]
+        assert len(resolved_predictions) == 1
+        assert resolved_predictions[0]["outcome"] is False
+
     @pytest.mark.asyncio
     async def test_get_predictions_pagination(
-        self, client: AsyncClient, sample_predictions
+        self, client: AsyncClient, load_test_data
     ):
         """Test GET /predictions with pagination."""
         # Test limit
@@ -75,41 +78,19 @@ class TestPredictionsAPI:
         assert data1[0]["id"] != data2[0]["id"]
 
     @pytest.mark.asyncio
-    async def test_get_predictions_with_json_fixtures(
-        self, client: AsyncClient, load_test_data
-    ):
-        """Test GET /predictions with JSON fixture data."""
-        response = await client.get("/predictions/")
-
-        assert response.status_code == 200
-        data = response.json()
-        assert isinstance(data, list)
-        assert len(data) == 3  # Based on our fixtures
-
-        # Check specific predictions from fixtures
-        ai_predictions = [
-            p for p in data if "AI surpass human intelligence" in p["question"]
-        ]
-        assert len(ai_predictions) == 1
-        assert ai_predictions[0]["status"] == "approved"
-
-        resolved_predictions = [p for p in data if p["outcome"] is not None]
-        assert len(resolved_predictions) == 1
-        assert resolved_predictions[0]["outcome"] is False
-
-    @pytest.mark.asyncio
-    async def test_get_single_prediction(self, client: AsyncClient, sample_predictions):
+    async def test_get_single_prediction(self, client: AsyncClient, load_test_data):
         """Test GET /predictions/{id} endpoint."""
-        # Get the AI prediction ID
-        ai_pred = sample_predictions["ai_prediction"]
-
-        response = await client.get(f"/predictions/{ai_pred.id}")
+        response = await client.get("/predictions/2")
         assert response.status_code == 200
 
         data = response.json()
-        assert data["id"] == ai_pred.id
-        assert data["question"] == ai_pred.question
-        assert data["status"] == ai_pred.status
+        assert data["id"] == 2
+        assert (
+            data["question"]
+            == "Will renewable energy exceed 50% of US electricity by 2025?"
+        )
+        assert data["status"] == "researching"
+        assert data["resolution_date"] == "2025-12-31"
 
     @pytest.mark.asyncio
     async def test_get_single_prediction_not_found(self, client: AsyncClient):

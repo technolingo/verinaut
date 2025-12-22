@@ -128,30 +128,30 @@ async def load_test_data(test_session: AsyncSession):
                 await test_session.refresh(model_instance)
 
 
-@pytest.fixture
-async def sample_predictions(test_session: AsyncSession) -> Dict[str, Prediction]:
-    """Create sample predictions for testing."""
-    predictions = {}
+# @pytest.fixture
+# async def sample_predictions(test_session: AsyncSession) -> Dict[str, Prediction]:
+#     """Create sample predictions for testing."""
+#     predictions = {}
 
-    # Create test predictions
-    pred1 = Prediction(
-        question="Will AI surpass human intelligence by 2030?",
-        description="A prediction about AGI timeline",
-        status="approved",
-    )
-    test_session.add(pred1)
+#     # Create test predictions
+#     pred1 = Prediction(
+#         question="Will AI surpass human intelligence by 2030?",
+#         description="A prediction about AGI timeline",
+#         status="approved",
+#     )
+#     test_session.add(pred1)
 
-    pred2 = Prediction(
-        question="Will renewable energy exceed 50% of US electricity by 2025?",
-        status="researching",
-    )
-    test_session.add(pred2)
+#     pred2 = Prediction(
+#         question="Will renewable energy exceed 50% of US electricity by 2025?",
+#         status="researching",
+#     )
+#     test_session.add(pred2)
 
-    await test_session.commit()
-    await test_session.refresh(pred1)
-    await test_session.refresh(pred2)
+#     await test_session.commit()
+#     await test_session.refresh(pred1)
+#     await test_session.refresh(pred2)
 
-    predictions["ai_prediction"] = pred1
-    predictions["energy_prediction"] = pred2
+#     predictions["ai_prediction"] = pred1
+#     predictions["energy_prediction"] = pred2
 
-    return predictions
+#     return predictions

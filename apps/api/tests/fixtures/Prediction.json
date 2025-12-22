@@ -28,5 +28,25 @@
         "resolution_date": "2025-01-01",
         "created_at": "2025-01-01T00:00:00",
         "updated_at": "2025-01-01T00:00:00"
+    },
+    {
+        "id": 4,
+        "question": "Will the stock market crash in 2026?",
+        "description": "Stock market prediction",
+        "status": "draft",
+        "outcome": null,
+        "resolution_date": "2026-12-31",
+        "created_at": "2025-01-01T00:00:00",
+        "updated_at": "2025-01-01T00:00:00"
+    },
+    {
+        "id": 5,
+        "question": "Will SETI find extraterrestrial life by 2030?",
+        "description": "Extraterrestrial life prediction",
+        "status": "pending_review",
+        "outcome": null,
+        "resolution_date": "2030-12-31",
+        "created_at": "2025-01-01T00:00:00",
+        "updated_at": "2025-01-01T00:00:00"
     }
 ]
