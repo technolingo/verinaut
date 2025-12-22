@@ -420,7 +420,7 @@ When the agent completes its research:
 3. Either:
    - **Accept**: Confirm the prediction as-is
    - **Challenge**: Provide feedback and request a revision
-   - **Reject**: Terminate the research process without saving the output
+   - **Reject**: Terminate the research process
 
 ### Updating Predictions
 
