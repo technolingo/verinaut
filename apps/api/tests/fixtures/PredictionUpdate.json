@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "prediction_id": 1,
+        "likelihood": 0.3,
+        "reasoning": "Based on current AI progress and expert opinions, AGI by 2030 seems unlikely.",
+        "created_at": "2025-01-01T00:00:00",
+        "updated_at": "2025-01-01T00:00:00"
+    },
+    {
+        "id": 2,
+        "prediction_id": 2,
+        "likelihood": 0.6,
+        "reasoning": "Renewable energy adoption is accelerating rapidly.",
+        "created_at": "2025-01-01T00:00:00",
+        "updated_at": "2025-01-01T00:00:00"
+    }
+]

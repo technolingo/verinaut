@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "question": "Will AI surpass human intelligence by 2030?",
+        "description": "A prediction about AGI timeline",
+        "status": "approved",
+        "outcome": null,
+        "resolution_date": null,
+        "created_at": "2025-01-01T00:00:00",
+        "updated_at": "2025-01-01T00:00:00"
+    },
+    {
+        "id": 2,
+        "question": "Will renewable energy exceed 50% of US electricity by 2025?",
+        "description": "Energy transition prediction",
+        "status": "researching",
+        "outcome": null,
+        "resolution_date": "2025-12-31",
+        "created_at": "2025-01-01T00:00:00",
+        "updated_at": "2025-01-01T00:00:00"
+    },
+    {
+        "id": 3,
+        "question": "Will the population of Tokyo exceed 14 million by 2025?",
+        "description": "Urban population growth prediction",
+        "status": "approved",
+        "outcome": false,
+        "resolution_date": "2025-01-01",
+        "created_at": "2025-01-01T00:00:00",
+        "updated_at": "2025-01-01T00:00:00"
+    }
+]

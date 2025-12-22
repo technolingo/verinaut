@@ -105,6 +105,7 @@ postgres-data/
 
 # SQLite
 apps/api/varinautsqlite.db
+apps/api/test_varinautsqlite.db
 
 # Chroma (vector database)
 chroma_data/
