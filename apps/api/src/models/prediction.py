@@ -1,7 +1,10 @@
+# pylint: disable=not-callable
+
 from enum import Enum
 from typing import Optional, List
 from datetime import date, datetime
 
+from sqlalchemy import Column, DateTime, func
 from sqlmodel import SQLModel, Field, Relationship
 
 
@@ -13,19 +16,20 @@ class PredictionStatus(str, Enum):
     RESOLVED = "resolved"
 
 
-class PredictionBase(SQLModel):
+class Prediction(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
     question: str = Field(index=True)
     description: Optional[str] = None
-    resolution_date: Optional[date] = None
-
-
-class Prediction(PredictionBase, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
     status: PredictionStatus = Field(default=PredictionStatus.DRAFT)
     outcome: Optional[bool] = None  # True/False when resolved
+    known_date: date
+    require_review: bool = Field(default=False)
     updates: List["PredictionUpdate"] = Relationship(back_populates="prediction")
+    resolved_at: Optional[datetime] = None
     created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(
+        sa_column=Column(DateTime, default=func.now(), onupdate=func.now())
+    )
 
 
 class PredictionUpdate(SQLModel, table=True):
@@ -36,7 +40,9 @@ class PredictionUpdate(SQLModel, table=True):
     reasoning: Optional[str] = None
     sources: List["Source"] = Relationship(back_populates="update")
     created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(
+        sa_column=Column(DateTime, default=func.now(), onupdate=func.now())
+    )
 
 
 class Source(SQLModel, table=True):
@@ -52,4 +58,6 @@ class Source(SQLModel, table=True):
     relevance: Optional[float] = Field(default=None, ge=0, le=1)
     reasoning: Optional[str] = None
     created_at: datetime = Field(default_factory=datetime.now)
-    updated_at: datetime = Field(default_factory=datetime.now)
+    updated_at: datetime = Field(
+        sa_column=Column(DateTime, default=func.now(), onupdate=func.now())
+    )

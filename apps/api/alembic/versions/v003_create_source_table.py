@@ -1,4 +1,4 @@
-"""Create source table
+"""003 Create source table
 
 Revision ID: e8e1013a9f00
 Revises: b4633a698241

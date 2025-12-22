@@ -1,4 +1,4 @@
-"""Create prediction_update table
+"""002 Create prediction_update table
 
 Revision ID: b4633a698241
 Revises: a8fb6d0ffed7
