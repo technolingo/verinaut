@@ -1,11 +1,13 @@
 [
     {
         "id": 1,
-        "question": "Will AI surpass human intelligence by 2030?",
-        "description": "A prediction about AGI timeline",
-        "status": "approved",
+        "question": "Will AGI arrive by 2030?",
+        "description": "AGI is defined as any AI system that is better at any human on any task that can be done with a computer.",
+        "status": "reviewed",
         "outcome": null,
-        "resolution_date": null,
+        "known_date": "2029-12-31",
+        "require_review": true,
+        "resolved_at": null,
         "created_at": "2025-01-01T00:00:00",
         "updated_at": "2025-01-01T00:00:00"
     },
@@ -15,19 +17,23 @@
         "description": "Energy transition prediction",
         "status": "researching",
         "outcome": null,
-        "resolution_date": "2025-12-31",
+        "known_date": "2025-12-31",
+        "require_review": false,
+        "resolved_at": null,
         "created_at": "2025-01-01T00:00:00",
         "updated_at": "2025-01-01T00:00:00"
     },
     {
         "id": 3,
-        "question": "Will the population of Tokyo exceed 14 million by 2025?",
+        "question": "Will the population of Tokyo exceed 14 million by the end of 2025?",
         "description": "Urban population growth prediction",
-        "status": "approved",
+        "status": "resolved",
         "outcome": false,
-        "resolution_date": "2025-01-01",
+        "known_date": "2025-12-31",
+        "require_review": false,
+        "resolved_at": "2026-01-13T22:10:00",
         "created_at": "2025-01-01T00:00:00",
-        "updated_at": "2025-01-01T00:00:00"
+        "updated_at": "2026-01-13T22:10:00"
     },
     {
         "id": 4,
@@ -35,7 +41,9 @@
         "description": "Stock market prediction",
         "status": "draft",
         "outcome": null,
-        "resolution_date": "2026-12-31",
+        "known_date": "2026-12-31",
+        "require_review": true,
+        "resolved_at": null,
         "created_at": "2025-01-01T00:00:00",
         "updated_at": "2025-01-01T00:00:00"
     },
@@ -45,8 +53,70 @@
         "description": "Extraterrestrial life prediction",
         "status": "pending_review",
         "outcome": null,
-        "resolution_date": "2030-12-31",
+        "known_date": "2030-12-31",
+        "require_review": true,
+        "resolved_at": null,
         "created_at": "2025-01-01T00:00:00",
         "updated_at": "2025-01-01T00:00:00"
+    },
+    {
+        "id": 6,
+        "question": "Will the price of Bitcoin exceed $100,000 at any point in 2025?",
+        "description": "Cryptocurrency price prediction based on halving cycle and institutional adoption trends",
+        "status": "resolved",
+        "outcome": true,
+        "known_date": "2025-12-31",
+        "require_review": false,
+        "resolved_at": "2025-01-18T23:59:00",
+        "created_at": "2024-06-15T14:30:00",
+        "updated_at": "2025-01-18T23:59:00"
+    },
+    {
+        "id": 7,
+        "question": "Will the EU pass the Chat Control Law in 2026?",
+        "description": null,
+        "status": "draft",
+        "outcome": null,
+        "known_date": "2026-12-31",
+        "require_review": true,
+        "resolved_at": null,
+        "created_at": "2025-03-20T09:00:00",
+        "updated_at": "2025-03-20T09:00:00"
+    },
+    {
+        "id": 8,
+        "question": "Will China land astronauts on the Moon before 2030?",
+        "description": null,
+        "status": "reviewed",
+        "outcome": null,
+        "known_date": "2029-12-31",
+        "require_review": true,
+        "resolved_at": null,
+        "created_at": "2025-02-10T11:20:00",
+        "updated_at": "2025-04-05T08:30:00"
+    },
+    {
+        "id": 9,
+        "question": "Will NASA return astronauts to the moon before China's landing?",
+        "description": null,
+        "status": "reviewed",
+        "outcome": null,
+        "known_date": "2029-12-31",
+        "require_review": true,
+        "resolved_at": null,
+        "created_at": "2024-11-01T10:00:00",
+        "updated_at": "2025-06-30T12:00:00"
+    },
+    {
+        "id": 10,
+        "question": "Will humanoid robot sales surpass car sales by 2030?",
+        "description": null,
+        "status": "pending_review",
+        "outcome": null,
+        "known_date": "2029-12-31",
+        "require_review": true,
+        "resolved_at": null,
+        "created_at": "2024-12-01T08:00:00",
+        "updated_at": "2025-07-22T14:15:00"
     }
 ]

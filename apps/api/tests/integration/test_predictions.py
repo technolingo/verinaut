@@ -25,32 +25,34 @@ class TestPredictionsAPI:
         assert response.status_code == 200
         data = response.json()
         assert isinstance(data, list)
-        assert len(data) == 3
+        assert len(data) == 10
 
         # Verify data structure
         for pred in data:
             assert "id" in pred
             assert "question" in pred
             assert "status" in pred
+            assert "outcome" in pred
+            assert "known_date" in pred
+            assert "require_review" in pred
+            assert "resolved_at" in pred
             assert "created_at" in pred
             assert "updated_at" in pred
             assert pred["status"] in [
                 "draft",
                 "researching",
                 "pending_review",
-                "approved",
+                "reviewed",
                 "resolved",
             ]
 
         # Check specific predictions from fixtures
-        ai_predictions = [
-            p for p in data if "AI surpass human intelligence" in p["question"]
-        ]
+        ai_predictions = [p for p in data if "Will AGI arrive by 2030" in p["question"]]
         assert len(ai_predictions) == 1
-        assert ai_predictions[0]["status"] == "approved"
+        assert ai_predictions[0]["status"] == "reviewed"
 
         resolved_predictions = [p for p in data if p["outcome"] is not None]
-        assert len(resolved_predictions) == 1
+        assert len(resolved_predictions) == 2
         assert resolved_predictions[0]["outcome"] is False
 
     @pytest.mark.asyncio
@@ -90,7 +92,7 @@ class TestPredictionsAPI:
             == "Will renewable energy exceed 50% of US electricity by 2025?"
         )
         assert data["status"] == "researching"
-        assert data["resolution_date"] == "2025-12-31"
+        assert data["known_date"] == "2025-12-31"
 
     @pytest.mark.asyncio
     async def test_get_single_prediction_not_found(self, client: AsyncClient):

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "update_id": 1,
+        "name": "Zilong",
+        "decision": "accept",
+        "feedback": "Solid initial assessment. The 35% likelihood is reasonable given current AI capabilities and known limitations in generalization and reasoning.",
+        "created_at": "2025-01-16T14:30:00",
+        "updated_at": "2025-01-16T14:30:00"
+    },
+    {
+        "id": 2,
+        "update_id": 2,
+        "name": "Zilong",
+        "decision": "accept",
+        "feedback": "Good update reflecting recent model improvements. The increase to 42% is justified by multi-modal advances while appropriately noting remaining challenges.",
+        "created_at": "2025-06-02T09:15:00",
+        "updated_at": "2025-06-02T09:15:00"
+    },
+    {
+        "id": 3,
+        "update_id": 18,
+        "name": "Zilong",
+        "decision": "accept",
+        "feedback": "Reasonable adjustment to 48%. The reasoning captures the current debate in the field well. Approved for publication.",
+        "created_at": "2025-10-16T10:00:00",
+        "updated_at": "2025-10-16T10:00:00"
+    },
+    {
+        "id": 4,
+        "update_id": 11,
+        "name": "Nostradamus",
+        "decision": "accept",
+        "feedback": "55% likelihood aligns with publicly available information about China's lunar program progress. Sources appear credible.",
+        "created_at": "2025-03-11T11:00:00",
+        "updated_at": "2025-03-11T11:00:00"
+    },
+    {
+        "id": 5,
+        "update_id": 12,
+        "name": "Nostradamus",
+        "decision": "accept",
+        "feedback": "The Long March 10 test success is well-documented. Increasing likelihood to 62% is appropriate given the demonstrated progress.",
+        "created_at": "2025-08-21T16:45:00",
+        "updated_at": "2025-08-21T16:45:00"
+    },
+    {
+        "id": 6,
+        "update_id": 13,
+        "name": "Nostradamus",
+        "decision": "accept",
+        "feedback": "Artemis delays are well-documented. 38% likelihood for NASA beating China seems fair given current trajectory.",
+        "created_at": "2025-01-06T09:30:00",
+        "updated_at": "2025-01-06T09:30:00"
+    },
+    {
+        "id": 7,
+        "update_id": 14,
+        "name": "Zilong",
+        "decision": "accept",
+        "feedback": "GAO report findings are accurate. Lowering to 32% reflects the widening gap between program timelines.",
+        "created_at": "2025-04-16T11:20:00",
+        "updated_at": "2025-04-16T11:20:00"
+    },
+    {
+        "id": 8,
+        "update_id": 15,
+        "name": "Zilong",
+        "decision": "reject",
+        "feedback": "Revision to 45% still seems a bit low, given the recent Starship progress.",
+        "created_at": "2025-09-02T14:00:00",
+        "updated_at": "2025-09-02T14:00:00"
+    }
+]

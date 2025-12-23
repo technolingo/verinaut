@@ -2,7 +2,7 @@ import json
 import asyncio
 from pathlib import Path
 from datetime import date, datetime
-from typing import AsyncGenerator, Dict, List
+from typing import AsyncGenerator, List
 
 import pytest
 from httpx import AsyncClient, ASGITransport
@@ -12,7 +12,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
 from src.main import app
-from src.models.prediction import Prediction, PredictionUpdate, Source
+from src import models  # pylint: disable=unused-import
 from src.sqldb import get_session
 
 
@@ -88,70 +88,49 @@ async def load_test_data(test_session: AsyncSession):
     """Load test data from JSON fixtures."""
     fixtures_dir = Path(__file__).parent / "fixtures"
 
-    # Fields that require date/datetime conversion from ISO strings
-    date_fields: List[str] = ["resolution_date"]
-    datetime_fields: List[str] = ["created_at", "updated_at"]
-
-    # Get all available model classes from globals
+    # Get all model classes from the models module
     available_models = {
         name: cls
-        for name, cls in globals().items()
+        for name, cls in vars(models).items()
         if isinstance(cls, type)
         and issubclass(cls, SQLModel)
-        and hasattr(cls, "__table__")
+        and cls is not SQLModel  # Exclude SQLModel itself
+        and hasattr(cls, "__tablename__")
     }
 
+    # Fields that require date/datetime conversion from ISO strings
+    date_fields: List[str] = ["known_date"]
+    datetime_fields: List[str] = ["created_at", "updated_at", "resolved_at"]
+
     # Load each fixture file
-    for fixture_file in fixtures_dir.glob("*.json"):
+    for fixture_file in sorted(fixtures_dir.glob("*.json")):
         model_name = fixture_file.stem  # filename without .json extension
 
-        if model_name in available_models:
-            model_class = available_models[model_name]
+        if model_name not in available_models:
+            continue
 
-            with open(fixture_file, encoding="utf-8") as f:
-                fixture_data = json.load(f)
+        model_class = available_models[model_name]
 
-            for item_data in fixture_data:
-                # Convert date/datetime strings to objects for specified fields
-                for field_name in date_fields + datetime_fields:
-                    field_value = item_data.get(field_name)
-                    if field_value is not None:
-                        if field_name in date_fields:
-                            item_data[field_name] = date.fromisoformat(field_value)
-                        elif field_name in datetime_fields:
-                            item_data[field_name] = datetime.fromisoformat(field_value)
+        with open(fixture_file, encoding="utf-8") as f:
+            fixture_data = json.load(f)
 
-                # Create and save the model instance
-                model_instance = model_class(**item_data)
-                test_session.add(model_instance)
-                await test_session.commit()
-                await test_session.refresh(model_instance)
+        for item_data in fixture_data:
+            # Convert date/datetime strings to objects for specified fields
 
+            for field_name in date_fields:
+                field_value = item_data.get(field_name)
+                if field_value is not None:
+                    item_data[field_name] = date.fromisoformat(field_value)
 
-# @pytest.fixture
-# async def sample_predictions(test_session: AsyncSession) -> Dict[str, Prediction]:
-#     """Create sample predictions for testing."""
-#     predictions = {}
+            for field_name in datetime_fields:
+                field_value = item_data.get(field_name)
+                if field_value is not None:
+                    item_data[field_name] = datetime.fromisoformat(field_value)
 
-#     # Create test predictions
-#     pred1 = Prediction(
-#         question="Will AI surpass human intelligence by 2030?",
-#         description="A prediction about AGI timeline",
-#         status="approved",
-#     )
-#     test_session.add(pred1)
+            # Create and save the model instance
+            model_instance = model_class(**item_data)
+            test_session.add(model_instance)
 
-#     pred2 = Prediction(
-#         question="Will renewable energy exceed 50% of US electricity by 2025?",
-#         status="researching",
-#     )
-#     test_session.add(pred2)
+        await test_session.commit()
 
-#     await test_session.commit()
-#     await test_session.refresh(pred1)
-#     await test_session.refresh(pred2)
-
-#     predictions["ai_prediction"] = pred1
-#     predictions["energy_prediction"] = pred2
-
-#     return predictions
+    yield

@@ -2,17 +2,161 @@
     {
         "id": 1,
         "prediction_id": 1,
-        "likelihood": 0.3,
-        "reasoning": "Based on current AI progress and expert opinions, AGI by 2030 seems unlikely.",
-        "created_at": "2025-01-01T00:00:00",
-        "updated_at": "2025-01-01T00:00:00"
+        "likelihood": 0.35,
+        "reasoning": "Current AI systems show impressive capabilities but remain narrow. Expert surveys suggest AGI by 2030 is possible but not probable. Key bottlenecks include reasoning, generalization, and embodiment.",
+        "created_at": "2025-01-15T10:00:00",
+        "updated_at": "2025-01-15T10:00:00"
     },
     {
         "id": 2,
+        "prediction_id": 1,
+        "likelihood": 0.42,
+        "reasoning": "Recent breakthroughs in multi-modal models and chain-of-thought reasoning have accelerated progress. However, fundamental challenges in causal reasoning and world models remain unsolved.",
+        "created_at": "2025-06-01T14:30:00",
+        "updated_at": "2025-06-01T14:30:00"
+    },
+    {
+        "id": 3,
         "prediction_id": 2,
-        "likelihood": 0.6,
-        "reasoning": "Renewable energy adoption is accelerating rapidly.",
-        "created_at": "2025-01-01T00:00:00",
-        "updated_at": "2025-01-01T00:00:00"
+        "likelihood": 0.28,
+        "reasoning": "Current renewable share is around 22%. Growth rate would need to more than double to reach 50% by year end. Grid infrastructure and storage limitations pose significant barriers.",
+        "created_at": "2025-02-10T09:00:00",
+        "updated_at": "2025-02-10T09:00:00"
+    },
+    {
+        "id": 4,
+        "prediction_id": 2,
+        "likelihood": 0.22,
+        "reasoning": "Q1 data shows renewables at 24%. While solar installations are up, natural gas remains dominant. Unlikely to reach 50% this year without major policy changes.",
+        "created_at": "2025-05-15T11:20:00",
+        "updated_at": "2025-05-15T11:20:00"
+    },
+    {
+        "id": 5,
+        "prediction_id": 3,
+        "likelihood": 0.15,
+        "reasoning": "Tokyo's population has been declining slightly due to aging demographics and suburban migration trends accelerated by remote work. Current estimates place population around 13.96 million.",
+        "created_at": "2025-03-01T08:00:00",
+        "updated_at": "2025-03-01T08:00:00"
+    },
+    {
+        "id": 6,
+        "prediction_id": 3,
+        "likelihood": 0.08,
+        "reasoning": "Mid-year census data confirms continued population decline. Tokyo recorded net negative migration for the third consecutive quarter. Final outcome: FALSE - population remained below 14 million.",
+        "created_at": "2025-12-20T16:00:00",
+        "updated_at": "2025-12-20T16:00:00"
+    },
+    {
+        "id": 7,
+        "prediction_id": 5,
+        "likelihood": 0.01,
+        "reasoning": "No credible detection signals reported. SETI continues monitoring but technological limitations and vastness of search space make discovery by 2030 highly improbable.",
+        "created_at": "2025-01-20T13:00:00",
+        "updated_at": "2025-01-20T13:00:00"
+    },
+    {
+        "id": 8,
+        "prediction_id": 6,
+        "likelihood": 0.72,
+        "reasoning": "Post-halving supply dynamics and increasing ETF inflows suggest strong upward pressure. Historical patterns show significant price appreciation 12-18 months after halving events.",
+        "created_at": "2024-07-01T10:00:00",
+        "updated_at": "2024-07-01T10:00:00"
+    },
+    {
+        "id": 9,
+        "prediction_id": 6,
+        "likelihood": 0.85,
+        "reasoning": "Bitcoin has reached $92,000 with strong momentum. Institutional adoption continues to accelerate. Breaking $100k appears imminent within weeks.",
+        "created_at": "2024-12-15T09:30:00",
+        "updated_at": "2024-12-15T09:30:00"
+    },
+    {
+        "id": 10,
+        "prediction_id": 6,
+        "likelihood": 0.98,
+        "reasoning": "Bitcoin crossed $100,000 on January 18, 2025. Prediction resolved as TRUE. Final price at resolution: $103,450.",
+        "created_at": "2025-01-18T23:00:00",
+        "updated_at": "2025-01-18T23:00:00"
+    },
+    {
+        "id": 11,
+        "prediction_id": 8,
+        "likelihood": 0.55,
+        "reasoning": "China's lunar program remains on track. Chang'e missions have demonstrated key technologies. Official target is 2030, suggesting high confidence from Chinese space agency.",
+        "created_at": "2025-03-10T07:00:00",
+        "updated_at": "2025-03-10T07:00:00"
+    },
+    {
+        "id": 12,
+        "prediction_id": 8,
+        "likelihood": 0.62,
+        "reasoning": "Successful test of new Long March 10 rocket increases confidence. Crew selection for lunar mission reportedly underway. Timeline appears achievable.",
+        "created_at": "2025-08-20T14:00:00",
+        "updated_at": "2025-08-20T14:00:00"
+    },
+    {
+        "id": 13,
+        "prediction_id": 9,
+        "likelihood": 0.38,
+        "reasoning": "Artemis program facing continued delays. Artemis III now targeting late 2027 at earliest. SpaceX Starship HLS development behind schedule. China's consistent progress narrows the gap.",
+        "created_at": "2025-01-05T11:00:00",
+        "updated_at": "2025-01-05T11:00:00"
+    },
+    {
+        "id": 14,
+        "prediction_id": 9,
+        "likelihood": 0.32,
+        "reasoning": "NASA budget constraints and SLS production issues create further uncertainty. GAO report suggests 2028 is more realistic for Artemis III. China maintains 2030 target with fewer public setbacks.",
+        "created_at": "2025-04-15T16:30:00",
+        "updated_at": "2025-04-15T16:30:00"
+    },
+    {
+        "id": 15,
+        "prediction_id": 9,
+        "likelihood": 0.45,
+        "reasoning": "Successful Starship orbital test reinvigorates timeline optimism. However, lunar lander variant still requires significant development. Race remains competitive.",
+        "created_at": "2025-09-01T08:45:00",
+        "updated_at": "2025-09-01T08:45:00"
+    },
+    {
+        "id": 16,
+        "prediction_id": 10,
+        "likelihood": 0.12,
+        "reasoning": "Current humanoid robot production is minimal compared to ~80 million annual car sales. Even aggressive growth projections don't support this timeline. Manufacturing scale-up faces significant challenges.",
+        "created_at": "2025-02-28T10:00:00",
+        "updated_at": "2025-02-28T10:00:00"
+    },
+    {
+        "id": 17,
+        "prediction_id": 10,
+        "likelihood": 0.18,
+        "reasoning": "Tesla Optimus and Chinese competitors showing progress. Cost reductions occurring faster than expected. However, 2030 remains too aggressive for sales volume parity with automobiles.",
+        "created_at": "2025-07-10T15:00:00",
+        "updated_at": "2025-07-10T15:00:00"
+    },
+    {
+        "id": 18,
+        "prediction_id": 1,
+        "likelihood": 0.48,
+        "reasoning": "Emergence of more capable reasoning models challenges previous assumptions. Some researchers argue we're closer than expected, while others maintain fundamental barriers exist.",
+        "created_at": "2025-10-15T12:00:00",
+        "updated_at": "2025-10-15T12:00:00"
+    },
+    {
+        "id": 19,
+        "prediction_id": 5,
+        "likelihood": 0.06,
+        "reasoning": "New radio telescope array in South Africa expands search capacity. James Webb providing insights into exoplanet atmospheres. Still, direct detection of intelligent life remains extremely unlikely by 2030.",
+        "created_at": "2025-08-05T09:15:00",
+        "updated_at": "2025-08-05T09:15:00"
+    },
+    {
+        "id": 20,
+        "prediction_id": 2,
+        "likelihood": 0.18,
+        "reasoning": "Q3 data confirms renewables at 27%. Significant progress but mathematically impossible to reach 50% by year end. Prediction likely to resolve FALSE.",
+        "created_at": "2025-10-01T14:00:00",
+        "updated_at": "2025-10-01T14:00:00"
     }
 ]

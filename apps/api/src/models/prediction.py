@@ -13,7 +13,7 @@ class PredictionStatus(str, Enum):
     DRAFT = "draft"
     RESEARCHING = "researching"
     PENDING_REVIEW = "pending_review"
-    APPROVED = "approved"
+    REVIEWED = "reviewed"
     RESOLVED = "resolved"
 
 
@@ -40,9 +40,9 @@ class PredictionUpdate(SQLModel, table=True):
     likelihood: float = Field(default=None, ge=0, le=1)
     reasoning: str
     sources: List["Source"] = Relationship(back_populates="update")
-    review: "Review" = Relationship(
+    review: Optional["HumanReview"] = Relationship(
         sa_relationship=RelationshipProperty(
-            "Review", back_populates="update", uselist=False
+            "HumanReview", back_populates="update", uselist=False
         )  # one-to-one relationship
     )
     created_at: datetime = Field(default_factory=datetime.utcnow)
