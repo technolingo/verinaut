@@ -20,6 +20,7 @@ dev = [
     "pytest>=9.0.2",
     "pytest-asyncio>=1.3.0",
     "httpx>=0.28.1",
+    "pytest-cov>=7.0.0",
 ]
 
 [tool.pytest.ini_options]
@@ -39,3 +40,16 @@ markers = [
     "integration: marks tests as integration tests",
     "unit: marks tests as unit tests"
 ]
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+omit = ["*/tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+]
+show_missing = true
