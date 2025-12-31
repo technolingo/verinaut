@@ -366,24 +366,7 @@ varinaut/
 
 ### Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/varinaut.git
-cd varinaut
-
-# Install dependencies
-make install
-
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your API keys (OpenAI, X.com, etc.)
-
-# Initialize the database
-make db-init
-
-# Start the development servers
-make dev
-```
+TODO
 
 ### Environment Variables
 
@@ -408,7 +391,7 @@ GOOGLE_CSE_ID=your-custom-search-engine-id
 1. Navigate to the dashboard at `http://localhost:5173`
 2. Click "New Prediction"
 3. Enter your prediction question (e.g., "John Smith wins the 2028 US presidential election")
-4. Optionally set a resolution date
+4. Set a known date
 5. Click "Create"
 
 ### Reviewing & Approving
@@ -424,9 +407,7 @@ When the agent completes its research:
 
 ### Updating Predictions
 
-- Click "Update" on any prediction to trigger a new research cycle
-- The agent will search for new information and propose an updated likelihood
-- Review and approve as before
+TODO
 
 ### Evaluating Outcomes
 
