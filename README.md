@@ -169,8 +169,9 @@ Over time, as predictions resolve, Varinaut calculates and displays a [**Brier s
 | **Python 3.12** | Modern Python with latest features |
 | **uv** | Fast Python package management |
 | **React** | Interactive prediction dashboard |
-| **Vite** | Fast frontend build tooling |
 | **TypeScript** | Type-safe frontend development |
+| **Vite** | Fast frontend build tooling |
+| **Bun** | Fast frontend runtime & package management |
 | **Tailwind** | UI styling and components |
 | **SQLite** | Lightweight persistent storage |
 | **Makefile** | Development commands and automation |
