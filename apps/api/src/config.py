@@ -8,6 +8,10 @@ class Settings(BaseSettings):
     debug: bool = True
     database_url: str = "sqlite+aiosqlite:///./varinautsqlite.db"
 
+    # Logging
+    log_level: str = "INFO"
+    log_dir: str = "logs"
+
     ai_model_name: str = ""
     ai_model_api_key: str = ""
     ai_model_api_url: str = ""
