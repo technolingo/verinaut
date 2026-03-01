@@ -157,6 +157,7 @@ pnpm-debug.log*
 *.pid.lock
 *.tgz
 .cache/
+*.eslintcache
 tmp/
 temp/
 TODO.md
