@@ -17,23 +17,30 @@ class PredictionStatus(str, Enum):
     RESOLVED = "resolved"
 
 
-class Prediction(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
+class PredictionBase(SQLModel):
     question: str = Field(index=True)
     description: Optional[str] = None
-    status: PredictionStatus = Field(default=PredictionStatus.DRAFT)
-    outcome: Optional[bool] = None  # True/False when resolved
     known_date: date
     require_review: bool = Field(default=False)
+
+
+class Prediction(PredictionBase, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    status: PredictionStatus = Field(default=PredictionStatus.DRAFT)
+    outcome: Optional[bool] = None  # True/False when resolved
     updates: List["PredictionUpdate"] = Relationship(back_populates="prediction")
     resolved_at: Optional[datetime] = None
     created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(
-        sa_column=Column(DateTime, default=func.now(), onupdate=func.now())
-    )
+    updated_at: Optional[datetime] = Field(default=None, sa_column=Column(DateTime, onupdate=func.now()))
+
+
+class PredictionPost(PredictionBase):
+    """PredictionPost is the schema for `POST /predictions` endpoint."""
+    pass
 
 
 class PredictionUpdate(SQLModel, table=True):
+    """PredictionUpdate is a DB record for updating a Prediction entry."""
     id: Optional[int] = Field(default=None, primary_key=True)
     prediction_id: int = Field(foreign_key="prediction.id", ondelete="CASCADE")
     prediction: Prediction = Relationship(back_populates="updates")
@@ -46,9 +53,7 @@ class PredictionUpdate(SQLModel, table=True):
         )  # one-to-one relationship
     )
     created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(
-        sa_column=Column(DateTime, default=func.now(), onupdate=func.now())
-    )
+    updated_at: Optional[datetime] = Field(default=None, sa_column=Column(DateTime, onupdate=func.now()))
 
 
 class Source(SQLModel, table=True):
@@ -64,9 +69,7 @@ class Source(SQLModel, table=True):
     relevance: float = Field(default=None, ge=0, le=1)
     reasoning: str
     created_at: datetime = Field(default_factory=datetime.now)
-    updated_at: datetime = Field(
-        sa_column=Column(DateTime, default=func.now(), onupdate=func.now())
-    )
+    updated_at: Optional[datetime] = Field(default=None, sa_column=Column(DateTime, onupdate=func.now()))
 
 
 class ReviewDecision(str, Enum):
@@ -83,6 +86,4 @@ class HumanReview(SQLModel, table=True):
     decision: ReviewDecision = Field(default=ReviewDecision.CHALLENGE)
     feedback: str
     created_at: datetime = Field(default_factory=datetime.now)
-    updated_at: datetime = Field(
-        sa_column=Column(DateTime, default=func.now(), onupdate=func.now())
-    )
+    updated_at: Optional[datetime] = Field(default=None, sa_column=Column(DateTime, onupdate=func.now()))

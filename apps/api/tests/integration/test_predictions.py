@@ -1,5 +1,9 @@
 import pytest
 from httpx import AsyncClient
+from sqlmodel import select, func
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from src.models import Prediction
 
 
 class TestPredictionsAPI:
@@ -100,3 +104,31 @@ class TestPredictionsAPI:
         response = await client.get("/predictions/999")
         assert response.status_code == 404
         assert "Prediction not found" in response.json()["detail"]
+
+    @pytest.mark.asyncio
+    async def test_post_prediction_201(self, client: AsyncClient, test_session: AsyncSession):
+        """Test POST /predictions with a valid payload."""
+        result = await test_session.execute(select(func.count()).select_from(Prediction))
+        count_before: int = result.scalar() or 0
+
+        payload = {
+            "question": "Will the sun rise up from the west and set in the east by 2030?",
+            "description": "This question examines whether the direction of Earth's rotation will change by 2030.",
+            "known_date": "2029-12-31",
+            "require_review": True,
+        }
+        response = await client.post("/predictions/", json=payload)
+        assert response.status_code == 201
+
+        test_session.refresh  # expire cache
+        result = await test_session.execute(select(func.count()).select_from(Prediction))
+        count_after = result.scalar()
+        assert count_after == count_before + 1
+
+        data = response.json()
+        assert data["question"] == "Will the sun rise up from the west and set in the east by 2030?"
+        assert data["require_review"] == True
+        assert data["known_date"] == '2029-12-31'
+        assert data["status"] == "draft"
+        assert data["outcome"] == None
+        assert data["resolved_at"] == None
